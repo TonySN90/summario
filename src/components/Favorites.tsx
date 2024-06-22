@@ -3,12 +3,12 @@ import { useAppContext } from "../contexts/AppContext";
 import ListItemEntries from "./ListItemEntries";
 
 function Favorites() {
-  const { isOpen, setIsOpen, favorites } = useAppContext();
+  const { isOpenFavourites, setIsOpenFavourites, favorites, setIsOpenModal } =
+    useAppContext();
 
   return (
     <div
-      //   style={{ display: isOpen ? "block" : "none" }}
-      style={{ right: isOpen ? "0px" : "-290px" }}
+      style={{ right: isOpenFavourites ? "0px" : "-290px" }}
       className="fixed h-[100vh] top-0 w-[280px] z-10 bg-color_brand_02 transition-all duration-500 ease-in-out"
     >
       <div className="p-4">
@@ -18,7 +18,13 @@ function Favorites() {
         ) : (
           <div className="h-[85vh] overflow-y-auto">
             {Array.from({ length: 16 }).map(() => (
-              <div className="relative flex w-full h-[70px] bg-white mb-2 rounded-lg shadow-lg overflow-hidden">
+              <div
+                onClick={() => [
+                  setIsOpenModal(true),
+                  setIsOpenFavourites(false),
+                ]}
+                className="relative flex w-full h-[70px] bg-white mb-2 rounded-lg shadow-lg overflow-hidden"
+              >
                 <div className="h-[70px] w-[70px]">
                   <img
                     className="object-cover h-full"
@@ -40,7 +46,7 @@ function Favorites() {
           </div>
         )}
       </div>
-      <div onClick={() => setIsOpen(false)}>
+      <div onClick={() => setIsOpenFavourites(false)}>
         <MdClose className="absolute top-2 right-2 text-4xl" />
       </div>
     </div>

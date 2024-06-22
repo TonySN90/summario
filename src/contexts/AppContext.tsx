@@ -7,7 +7,8 @@ function AppProvider({ children }: { children: React.ReactNode }) {
   const [view, setView] = useState(true);
   const [sort, setSort] = useState(true);
   const [favorites, setFavorites] = useState<object[]>([{}]);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenFavourites, setIsOpenFavourites] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   return (
     <AppContext.Provider
@@ -18,8 +19,10 @@ function AppProvider({ children }: { children: React.ReactNode }) {
         setSort,
         favorites,
         setFavorites,
-        isOpen,
-        setIsOpen,
+        isOpenFavourites,
+        setIsOpenFavourites,
+        isOpenModal,
+        setIsOpenModal,
       }}
     >
       {children}

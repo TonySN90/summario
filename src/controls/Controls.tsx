@@ -10,8 +10,15 @@ import ControlButton from "./ControlButton";
 import { useAppContext } from "../contexts/AppContext";
 
 function Controls() {
-  const { sort, setSort, view, setView, isOpen, setIsOpen, favorites } =
-    useAppContext();
+  const {
+    sort,
+    setSort,
+    view,
+    setView,
+    isOpenFavourites,
+    setIsOpenFavourites,
+    favorites,
+  } = useAppContext();
   function handleClickSort() {
     setSort(!sort);
   }
@@ -19,7 +26,7 @@ function Controls() {
     setView(!view);
   }
   function handleClickFavs() {
-    setIsOpen(!isOpen);
+    setIsOpenFavourites(!isOpenFavourites);
   }
 
   return (

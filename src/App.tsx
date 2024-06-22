@@ -8,9 +8,10 @@ import List from "./list/List";
 import Tiles from "./tiles/Tiles";
 import { useAppContext } from "./contexts/AppContext";
 import Favorites from "./components/Favorites";
+import Modal from "./components/Modal";
 
 function App() {
-  const { view } = useAppContext();
+  const { view, isOpenModal } = useAppContext();
 
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
         {view ? <List /> : <Tiles />}
       </Wrapper>
       <Favorites />
+      {isOpenModal && <Modal />}
     </>
   );
 }

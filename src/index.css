@@ -8,6 +8,8 @@ body {
   padding: 0;
   color: #40200e;
   background-color: #a69c9c10;
+  height: 100vh;
+
   /* background: linear-gradient(
     25deg,
     rgba(64, 32, 14, 1) 0%,

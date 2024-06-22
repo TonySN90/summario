@@ -1,9 +1,14 @@
 import { GoHeart } from "react-icons/go";
 import ListItemEntries from "../components/ListItemEntries";
+import { useAppContext } from "../contexts/AppContext";
 
 function ListItem() {
+  const { setIsOpenModal } = useAppContext();
   return (
-    <div className="relative flex h-[100px] w-inherit rounded-md shadow-xl">
+    <div
+      onClick={() => setIsOpenModal(true)}
+      className="relative flex h-[100px] w-inherit rounded-md shadow-xl"
+    >
       <img
         className="h-full rounded-l-md"
         src="http://localhost:3000/thumbnails/62800_122_t.jpg"
