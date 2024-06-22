@@ -1,10 +1,11 @@
 import { createContext, useContext, useState } from "react";
+import { IContextTypes } from "../types/types";
 
-const AppContext = createContext({});
+const AppContext = createContext<IContextTypes | undefined>(undefined);
 
 function AppProvider({ children }: { children: React.ReactNode }) {
-  const [view, setView] = useState("list");
-  const [sort, setSort] = useState("a-z");
+  const [view, setView] = useState(true);
+  const [sort, setSort] = useState(true);
 
   return (
     <AppContext.Provider value={{ view, setView, sort, setSort }}>

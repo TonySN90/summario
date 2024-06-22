@@ -11,7 +11,6 @@ import { useAppContext } from "./contexts/AppContext";
 function App() {
   const { view } = useAppContext();
 
-  console.log(view);
   return (
     <>
       <Header />
