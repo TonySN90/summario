@@ -6,9 +6,12 @@ import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import List from "./list/List";
 import Tiles from "./tiles/Tiles";
+import { useAppContext } from "./contexts/AppContext";
 
 function App() {
-  const list = false;
+  const { view } = useAppContext();
+
+  console.log(view);
   return (
     <>
       <Header />
@@ -16,7 +19,7 @@ function App() {
         <Title />
         <Controls />
 
-        {list ? <List /> : <Tiles />}
+        {view ? <List /> : <Tiles />}
       </Wrapper>
     </>
   );

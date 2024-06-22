@@ -2,14 +2,14 @@ import { createContext, useContext, useState } from "react";
 
 const AppContext = createContext({});
 
-function AppProvider() {
+function AppProvider({ children }: { children: React.ReactNode }) {
   const [view, setView] = useState("list");
   const [sort, setSort] = useState("a-z");
 
   return (
-    <AppContext.Provider
-      value={{ view, setView, sort, setSort }}
-    ></AppContext.Provider>
+    <AppContext.Provider value={{ view, setView, sort, setSort }}>
+      {children}
+    </AppContext.Provider>
   );
 }
 
