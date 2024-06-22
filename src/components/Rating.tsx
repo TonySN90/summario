@@ -4,7 +4,7 @@ const Rating = ({ rating }: { rating: number }) => {
   const isHalfPoint = rating - filledPoints >= 0.5;
 
   return (
-    <div className="flex text-[3rem] leading-[1.3rem] tracking-[-0.07em] pb-2">
+    <div className="flex text-[3rem] leading-[1rem] tracking-[-0.07em] pb-2">
       {[...Array(maxRating)].map((_, index) => (
         <span key={index} className="relative">
           {index < filledPoints ? (
