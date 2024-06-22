@@ -11,6 +11,7 @@ export default {
         color_brand_03_tr2: "#40200e75",
         color_brand_04: "#BF0404",
         color_brand_05: "#A69C9C",
+        color_bg: "#F3F2F2",
       },
     },
   },

@@ -9,6 +9,7 @@ function AppProvider({ children }: { children: React.ReactNode }) {
   const [isOpenFavourites, setIsOpenFavourites] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isLoading, setIsLoading] = useState(LoadingStatusType.idle);
+  const [currentHotel, setCurrentHotel] = useState({});
 
   const [favorites, setFavorites] = useState<object[]>([]);
   const [hotelData, setHotelData] = useState<object[]>([]);
@@ -29,21 +30,25 @@ function AppProvider({ children }: { children: React.ReactNode }) {
 
         const hotelData: IHotelTypes[] = [];
 
+        console.log(data);
+
         data.forEach((hotel: IHotelTypes) => {
           const object = {
             id: hotel.id,
             name: hotel.name,
-            adress: hotel.adress1,
+            address: hotel.address1,
             city: hotel.city,
-            country: hotel.country,
+            country: hotel.countryCode,
             location: hotel.location,
             lowRate: hotel.lowRate,
-            heighRate: hotel.heighRate,
+            highRate: hotel.highRate,
             confidenceRating: hotel.confidenceRating,
             thumbNailUrl: hotel.thumbNailUrl,
             tripAdvisorRating: hotel.tripAdvisorRating,
             tripAdvisorRatingUrl: hotel.tripAdvisorRatingUrl,
             deepLink: hotel.deepLink,
+            shortDescription: hotel.shortDescription,
+            locationDescription: hotel.locationDescription,
           };
           hotelData.push(object);
         });
@@ -74,6 +79,8 @@ function AppProvider({ children }: { children: React.ReactNode }) {
         setIsOpenModal,
         isLoading,
         hotelData,
+        currentHotel,
+        setCurrentHotel,
       }}
     >
       {children}

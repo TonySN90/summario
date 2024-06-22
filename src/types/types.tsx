@@ -9,6 +9,8 @@ export interface IContextTypes {
   isOpenModal: boolean;
   setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   isLoading: LoadingStatusType;
+  currentHotel: IHotelTypes | null;
+  setCurrentHotel: React.Dispatch<React.SetStateAction<IHotelTypes | object>>;
   favorites: object[];
   hotelData: object[];
 }
@@ -16,12 +18,12 @@ export interface IContextTypes {
 export interface IHotelTypes {
   id?: number;
   name?: string;
-  adress1?: string;
+  address1?: string;
   city?: string;
-  country?: string;
+  countryCode?: string;
   location?: string;
   lowRate?: number;
-  heighRate?: number;
+  highRate?: number;
   rating?: number;
   thumbnail?: string;
   tripAdvisorRating?: number;
@@ -29,6 +31,8 @@ export interface IHotelTypes {
   deepLink?: string;
   confidenceRating?: number;
   thumbNailUrl?: string;
+  shortDescription?: string;
+  locationDescription?: string;
 }
 
 export enum LoadingStatusType {

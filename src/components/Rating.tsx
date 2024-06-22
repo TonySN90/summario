@@ -4,9 +4,9 @@ const Rating = ({ rating }: { rating: number }) => {
   const isHalfPoint = rating - filledPoints >= 0.5;
 
   return (
-    <div className="flex text-[3rem] leading-[1rem] tracking-[-0.07em] pb-2">
+    <div className="flex text-[3.5rem] leading-[.6rem] tracking-[-0.05em] pb-2 ml-[-2px]">
       {[...Array(maxRating)].map((_, index) => (
-        <span key={index} className="relative">
+        <span key={index} className="relative mt-1">
           {index < filledPoints ? (
             <span className="text-green-500">•</span>
           ) : (
@@ -14,8 +14,8 @@ const Rating = ({ rating }: { rating: number }) => {
           )}
           {isHalfPoint && index === filledPoints && (
             <span
-              className="absolute top-0 left-0 text-green-500"
-              style={{ width: "60%", overflow: "hidden" }}
+              className="absolute left-0 text-green-500"
+              style={{ width: "60%", overflow: "hidden", height: "20px" }}
             >
               •
             </span>

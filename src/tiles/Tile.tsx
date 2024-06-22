@@ -4,12 +4,14 @@ import { useAppContext } from "../contexts/AppContext";
 import { IHotelTypes } from "../types/types";
 
 function Tile({ hotel }: { hotel: IHotelTypes }) {
-  const { setIsOpenModal } = useAppContext();
+  const { setIsOpenModal, setCurrentHotel } = useAppContext();
 
   const URL = `http://localhost:3000${hotel.thumbNailUrl}`;
 
   function handleClick() {
     setIsOpenModal(true);
+    setCurrentHotel(hotel);
+    document.body.style.overflow = "hidden";
   }
 
   return (
