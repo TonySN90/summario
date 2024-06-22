@@ -49,7 +49,7 @@ function Modal() {
 
       <p className="font-semibold">{tripAdvisorRating} of 5 at TripAdvisor</p>
       <div className="flex gap-1">
-        <FaTripadvisor className="text-xl mt-[3px]" />
+        <FaTripadvisor className="text-xl" />
         <Rating rating={tripAdvisorRating ?? 0} />
       </div>
       <div className="flex items-center justify-end gap-1 h-[80px]">
@@ -65,14 +65,18 @@ function Modal() {
       <p className="text-lg font-bold">Further information</p>
       <article>
         {shortDescription}...{" "}
-        <a className="font-bold underline" href={deepLink}>
+        <a className="font-bold underline" href={deepLink} target="_blank">
           For more information follow the link
         </a>
       </article>
 
-      <div className="flex items-center justify-center w-[100px] h-[40px] bg-color_brand_04 text-white font-bold rounded-md shadow-lg shadow-gray-500 my-4">
+      <a
+        href={deepLink}
+        target="_blank"
+        className="flex items-center justify-center w-[100px] h-[40px] bg-color_brand_04 text-white font-bold rounded-md shadow-lg shadow-gray-500 my-4"
+      >
         <p>Book</p>
-      </div>
+      </a>
     </div>
   );
 }

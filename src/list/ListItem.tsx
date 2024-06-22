@@ -4,13 +4,19 @@ import { useAppContext } from "../contexts/AppContext";
 import { IHotelTypes } from "../types/types";
 
 function ListItem({ hotel }: { hotel: IHotelTypes }) {
-  const { setIsOpenModal } = useAppContext();
+  const { setIsOpenModal, setCurrentHotel } = useAppContext();
 
   const URL = `http://localhost:3000${hotel.thumbNailUrl}`;
 
+  function handleClick() {
+    setIsOpenModal(true);
+    setCurrentHotel(hotel);
+    document.body.style.overflow = "hidden";
+  }
+
   return (
     <div
-      onClick={() => setIsOpenModal(true)}
+      onClick={() => handleClick()}
       className="relative flex h-[90px] w-inherit rounded-md shadow-xl"
     >
       <div className=" w-[140px] rounded-l-md overflow-hidden">
