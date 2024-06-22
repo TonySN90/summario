@@ -6,9 +6,12 @@ const AppContext = createContext<IContextTypes | undefined>(undefined);
 function AppProvider({ children }: { children: React.ReactNode }) {
   const [view, setView] = useState(true);
   const [sort, setSort] = useState(true);
+  const [favorites, setFavorites] = useState<object[]>([]);
 
   return (
-    <AppContext.Provider value={{ view, setView, sort, setSort }}>
+    <AppContext.Provider
+      value={{ view, setView, sort, setSort, favorites, setFavorites }}
+    >
       {children}
     </AppContext.Provider>
   );
