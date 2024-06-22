@@ -1,10 +1,19 @@
-import { FaHeart, FaListUl, FaRegHeart, FaSortAlphaDown } from "react-icons/fa";
+import {
+  FaHeart,
+  FaListUl,
+  FaRegHeart,
+  FaSortAlphaDown,
+  FaSortAlphaUp,
+} from "react-icons/fa";
 import { SiWindows11 } from "react-icons/si";
 import ControlButton from "./ControlButton";
 import { useAppContext } from "../contexts/AppContext";
 
 function Controls() {
-  const { view, setView, favorites } = useAppContext();
+  const { sort, setSort, view, setView, favorites } = useAppContext();
+  function handleClickSort() {
+    setSort(!sort);
+  }
   function handleClickView() {
     setView(!view);
   }
@@ -12,9 +21,10 @@ function Controls() {
   return (
     <section>
       <div className="flex w-full gap-2 mb-2">
-        <ControlButton handleClick={() => console.log("sort")}>
+        <ControlButton handleClick={handleClickSort}>
           <p className="text-sm">Sort</p>
-          <FaSortAlphaDown />
+          {sort ? <FaSortAlphaDown /> : <FaSortAlphaUp />}
+          {/* <FaSortAlphaDown /> */}
         </ControlButton>
 
         <ControlButton handleClick={handleClickView}>
