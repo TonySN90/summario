@@ -5,4 +5,6 @@ export interface IContextTypes {
   setSort: React.Dispatch<React.SetStateAction<boolean>>;
   favorites: object[];
   setFavorites: React.Dispatch<React.SetStateAction<object[]>>;
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }

@@ -6,11 +6,21 @@ const AppContext = createContext<IContextTypes | undefined>(undefined);
 function AppProvider({ children }: { children: React.ReactNode }) {
   const [view, setView] = useState(true);
   const [sort, setSort] = useState(true);
-  const [favorites, setFavorites] = useState<object[]>([]);
+  const [favorites, setFavorites] = useState<object[]>([{}]);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <AppContext.Provider
-      value={{ view, setView, sort, setSort, favorites, setFavorites }}
+      value={{
+        view,
+        setView,
+        sort,
+        setSort,
+        favorites,
+        setFavorites,
+        isOpen,
+        setIsOpen,
+      }}
     >
       {children}
     </AppContext.Provider>

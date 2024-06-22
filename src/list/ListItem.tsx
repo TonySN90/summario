@@ -1,7 +1,5 @@
-import { AiOutlineDollar } from "react-icons/ai";
-import { FaTripadvisor } from "react-icons/fa";
 import { GoHeart } from "react-icons/go";
-import { LuHotel } from "react-icons/lu";
+import ListItemEntries from "../components/ListItemEntries";
 
 function ListItem() {
   return (
@@ -15,18 +13,7 @@ function ListItem() {
         <GoHeart className="text-xl" />
       </div>
       <div className="flex flex-col justify-center pl-4 w-full rounded-r-md bg-white">
-        <div className="flex items-center gap-1">
-          <LuHotel />
-          <p className="font-semibold">Hotel Eagle Eye</p>
-        </div>
-        <div className="flex items-center gap-1">
-          <FaTripadvisor />
-          <p>4.5 von 5</p>
-        </div>
-        <div className="flex items-center gap-1">
-          <AiOutlineDollar />
-          <p className="font-bold">119</p>
-        </div>
+        <ListItemEntries />
       </div>
     </div>
   );
