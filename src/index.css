@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: #40200e;
+  background-color: #a69c9c10;
+  /* background: linear-gradient(
+    25deg,
+    rgba(64, 32, 14, 1) 0%,
+    rgba(166, 156, 156, 1) 100%
+  ); */
+
+  /* background: linear-gradient(
+    30deg,
+    rgba(182, 242, 236, 1) 10%,
+    rgba(242, 229, 213, 1) 100%
+  ); */
+}
