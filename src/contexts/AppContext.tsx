@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { IContextTypes, LoadingStatusType } from "../types/types";
+import { IContextTypes, IHotelTypes, LoadingStatusType } from "../types/types";
 
 const AppContext = createContext<IContextTypes | undefined>(undefined);
 
@@ -26,7 +26,29 @@ function AppProvider({ children }: { children: React.ReactNode }) {
       try {
         const response = await fetch("http://localhost:3000/api/hotels");
         const data = await response.json();
-        setHotelData([...hotelData, ...data]);
+
+        const hotelData: IHotelTypes[] = [];
+
+        data.forEach((hotel: IHotelTypes) => {
+          const object = {
+            id: hotel.id,
+            name: hotel.name,
+            adress: hotel.adress1,
+            city: hotel.city,
+            country: hotel.country,
+            location: hotel.location,
+            lowRate: hotel.lowRate,
+            heighRate: hotel.heighRate,
+            confidenceRating: hotel.confidenceRating,
+            thumbNailUrl: hotel.thumbNailUrl,
+            tripAdvisorRating: hotel.tripAdvisorRating,
+            tripAdvisorRatingUrl: hotel.tripAdvisorRatingUrl,
+            deepLink: hotel.deepLink,
+          };
+          hotelData.push(object);
+        });
+
+        setHotelData(hotelData);
       } catch (error) {
         console.log(error);
       } finally {
@@ -35,7 +57,7 @@ function AppProvider({ children }: { children: React.ReactNode }) {
     }
 
     getHotelData();
-  }, [hotelData]);
+  }, []);
 
   return (
     <AppContext.Provider

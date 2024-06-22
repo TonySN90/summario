@@ -13,6 +13,24 @@ export interface IContextTypes {
   hotelData: object[];
 }
 
+export interface IHotelTypes {
+  id?: number;
+  name?: string;
+  adress1?: string;
+  city?: string;
+  country?: string;
+  location?: string;
+  lowRate?: number;
+  heighRate?: number;
+  rating?: number;
+  thumbnail?: string;
+  tripAdvisorRating?: number;
+  tripAdvisorRatingUrl?: string;
+  deepLink?: string;
+  confidenceRating?: number;
+  thumbNailUrl?: string;
+}
+
 export enum LoadingStatusType {
   idle = "idle",
   loading = "loading",

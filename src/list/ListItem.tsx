@@ -1,8 +1,9 @@
 import { GoHeart } from "react-icons/go";
 import ListItemEntries from "../components/ListItemEntries";
 import { useAppContext } from "../contexts/AppContext";
+import { IHotelTypes } from "../types/types";
 
-function ListItem() {
+function ListItem({ hotel }: { hotel: IHotelTypes }) {
   const { setIsOpenModal } = useAppContext();
   return (
     <div
@@ -18,7 +19,7 @@ function ListItem() {
         <GoHeart className="text-xl" />
       </div>
       <div className="flex flex-col justify-center pl-4 w-full rounded-r-md bg-white">
-        <ListItemEntries />
+        <ListItemEntries hotel={hotel} />
       </div>
     </div>
   );
