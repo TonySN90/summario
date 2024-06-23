@@ -13,7 +13,7 @@ function Favorites() {
     <div
       ref={ref}
       style={{ right: isOpenFavourites ? "-2px" : "-100%" }}
-      className="fixed h-[100vh] top-0 w-[90%] z-10 bg-color_brand_02 transition-all duration-500 ease-in-out"
+      className="fixed h-[100vh] top-0 w-[90%] sm:w-[50%] xl:w-[35%] max-w-[500px] z-10 bg-color_brand_02 transition-all duration-500 ease-in-out"
     >
       <div className="p-4">
         <div className="font-semibold text-xl mb-4">Favourites</div>

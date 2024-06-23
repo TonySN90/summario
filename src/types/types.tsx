@@ -37,7 +37,6 @@ export interface IHotelTypes {
   thumbNailUrl?: string;
   shortDescription?: string;
   locationDescription?: string;
-  isFavorite?: boolean;
 }
 
 export enum LoadingStatusType {

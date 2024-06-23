@@ -69,7 +69,6 @@ function AppProvider({ children }: { children: React.ReactNode }) {
             tripAdvisorRating: hotel.tripAdvisorRating,
             locationDescription: hotel.locationDescription,
             tripAdvisorRatingUrl: hotel.tripAdvisorRatingUrl,
-            isFavorite: false,
           };
           hotelData.push(object);
         });

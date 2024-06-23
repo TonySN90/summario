@@ -28,11 +28,6 @@ function ListItem({
     document.body.style.overflow = "hidden";
   }
 
-  // function handleClickRemove() {
-  //   console.log("clicked");
-  //   setFavorite(hotel);
-  // }
-
   function handleClickFavorite(event: React.MouseEvent<HTMLDivElement>) {
     event.stopPropagation();
     setFavorite(hotel);
@@ -41,7 +36,7 @@ function ListItem({
   return (
     <div
       onClick={() => handleClickItem()}
-      className="relative flex h-[90px] w-inherit rounded-md shadow-xl"
+      className="relative flex h-[90px] w-inherit rounded-md shadow-xl cursor-pointer"
     >
       <div className=" w-[140px] rounded-l-md overflow-hidden">
         <img className="object-cover w-full h-full" src={URL} alt="" />

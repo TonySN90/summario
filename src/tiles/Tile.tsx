@@ -27,7 +27,7 @@ function Tile({ hotel }: { hotel: IHotelTypes }) {
   return (
     <div
       onClick={() => handleClickItem()}
-      className="relative w-[calc(50%-0.25rem)] md:w-[calc(33.1%-0.25rem)] bg-white rounded-md shadow-lg border-b-2 border-b-color_brand_05"
+      className="relative w-[calc(50%-0.25rem)] md:w-[calc(33.1%-0.25rem)] bg-white rounded-md shadow-lg border-b-2 border-b-color_brand_05 cursor-pointer"
     >
       <div className="w-full h-[130px]">
         <img
