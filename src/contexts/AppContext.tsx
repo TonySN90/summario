@@ -28,6 +28,12 @@ function AppProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
+  function setFavorite(hotel: IHotelTypes) {
+    if (favorites.includes(hotel))
+      setFavorites(favorites.filter((fav) => fav !== hotel));
+    else setFavorites((prevFavorites) => [...prevFavorites, hotel]);
+  }
+
   useEffect(() => {
     // function sortHotels() {
 
@@ -63,6 +69,7 @@ function AppProvider({ children }: { children: React.ReactNode }) {
             tripAdvisorRating: hotel.tripAdvisorRating,
             locationDescription: hotel.locationDescription,
             tripAdvisorRatingUrl: hotel.tripAdvisorRatingUrl,
+            isFavorite: false,
           };
           hotelData.push(object);
         });
@@ -96,6 +103,7 @@ function AppProvider({ children }: { children: React.ReactNode }) {
         currentHotel,
         setCurrentHotel,
         sortHotels,
+        setFavorite,
       }}
     >
       {children}

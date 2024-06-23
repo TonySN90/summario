@@ -1,22 +1,32 @@
-import { GoHeart } from "react-icons/go";
+import { GoHeart, GoHeartFill } from "react-icons/go";
 import ListItemEntries from "../components/ListItemEntries";
 import { useAppContext } from "../contexts/AppContext";
 import { IHotelTypes } from "../types/types";
 
 function Tile({ hotel }: { hotel: IHotelTypes }) {
-  const { setIsOpenModal, setCurrentHotel } = useAppContext();
+  const { setIsOpenModal, setCurrentHotel, setFavorite, favorites } =
+    useAppContext();
+
+  const isFavorite = favorites.some(
+    (fav) => (fav as IHotelTypes).id === hotel.id
+  );
 
   const URL = `http://localhost:3000${hotel.thumbNailUrl}`;
 
-  function handleClick() {
+  function handleClickItem() {
     setIsOpenModal(true);
     setCurrentHotel(hotel);
     document.body.style.overflow = "hidden";
   }
 
+  function handleClickFavorite(event: React.MouseEvent<HTMLDivElement>) {
+    event.stopPropagation();
+    setFavorite(hotel);
+  }
+
   return (
     <div
-      onClick={() => handleClick()}
+      onClick={() => handleClickItem()}
       className="relative w-[calc(50%-0.25rem)] md:w-[calc(33.1%-0.25rem)] bg-white rounded-md shadow-lg border-b-2 border-b-color_brand_05"
     >
       <div className="w-full h-[130px]">
@@ -26,8 +36,15 @@ function Tile({ hotel }: { hotel: IHotelTypes }) {
           alt="hotel thumbnail"
         />
       </div>
-      <div className="absolute top-1 right-1 flex justify-center items-center p-2 rounded-full bg-white">
-        <GoHeart className="text-xl" />
+      <div
+        onClick={(event) => handleClickFavorite(event)}
+        className="absolute top-1 right-1 flex justify-center items-center p-2 rounded-full bg-white"
+      >
+        {isFavorite ? (
+          <GoHeartFill className="text-color_brand_04 text-xl" />
+        ) : (
+          <GoHeart className="text-color_brand_04 text-xl" />
+        )}
       </div>
       <div className="flex flex-col justify-center align-center p-4 min-h-[120px] max-h-[140px]">
         <ListItemEntries hotel={hotel} />

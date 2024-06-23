@@ -14,7 +14,7 @@ function List() {
     <section className="mt-4">
       <div className="flex flex-col gap-2 justify-center flex-wrap w-full pb-4">
         {hotelData.map((hotel: IHotelTypes) => (
-          <ListItem key={hotel.id} hotel={hotel} />
+          <ListItem key={hotel.id} hotel={hotel} favBtn={true} />
         ))}
       </div>
     </section>

@@ -12,12 +12,13 @@ export interface IContextTypes {
   currentHotel: IHotelTypes | null;
   setCurrentHotel: React.Dispatch<React.SetStateAction<IHotelTypes | object>>;
   sortHotels: () => void;
+  setFavorite: (object: IHotelTypes) => void;
   favorites: object[];
   hotelData: object[];
 }
 
 export interface IHotelTypes {
-  id?: number;
+  id?: string;
   name?: string;
   address1?: string;
   address?: string;
@@ -36,6 +37,7 @@ export interface IHotelTypes {
   thumbNailUrl?: string;
   shortDescription?: string;
   locationDescription?: string;
+  isFavorite?: boolean;
 }
 
 export enum LoadingStatusType {

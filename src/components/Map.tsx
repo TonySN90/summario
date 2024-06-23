@@ -4,7 +4,6 @@ function Map({
   location: { latitude: number; longitude: number };
 }) {
   const { latitude, longitude } = location;
-  console.log(location);
 
   return (
     <div>

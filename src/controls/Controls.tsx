@@ -29,6 +29,7 @@ function Controls() {
   }
   function handleClickFavs() {
     setIsOpenFavourites(!isOpenFavourites);
+    document.body.style.overflow = "hidden";
   }
 
   return (
