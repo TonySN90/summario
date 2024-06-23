@@ -1,9 +1,14 @@
+import Spinner from "../components/Spinner";
 import { useAppContext } from "../contexts/AppContext";
-import { IHotelTypes } from "../types/types";
+import { IHotelTypes, LoadingStatusType } from "../types/types";
 import Tile from "./Tile";
 
 function Tiles() {
-  const { hotelData } = useAppContext();
+  const { hotelData, loadingStatus } = useAppContext();
+  const isLoading = loadingStatus === LoadingStatusType.loading;
+
+  if (isLoading) return <Spinner />;
+  if (!hotelData.length) return <div>No hotels could be found</div>;
 
   return (
     <section className="mt-4">

@@ -36,7 +36,7 @@ function Controls() {
       <div className="flex w-full gap-2 mb-2">
         <ControlButton handleClick={() => handleClickSort()}>
           <p className="text-sm">Sort</p>
-          {sort ? <FaSortAlphaDown /> : <FaSortAlphaUp />}
+          {sort ? <FaSortAlphaUp /> : <FaSortAlphaDown />}
         </ControlButton>
 
         <ControlButton handleClick={() => handleClickView()}>

@@ -8,7 +8,7 @@ export interface IContextTypes {
   setIsOpenFavourites: React.Dispatch<React.SetStateAction<boolean>>;
   isOpenModal: boolean;
   setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
-  isLoading: LoadingStatusType;
+  loadingStatus: LoadingStatusType;
   currentHotel: IHotelTypes | null;
   setCurrentHotel: React.Dispatch<React.SetStateAction<IHotelTypes | object>>;
   sortHotels: () => void;
@@ -20,10 +20,11 @@ export interface IHotelTypes {
   id?: number;
   name?: string;
   address1?: string;
+  address?: string;
   city?: string;
   countryCode?: string;
   country?: string;
-  location?: string;
+  location?: { latitude: number; longitude: number };
   lowRate?: number;
   highRate?: number;
   rating?: number;

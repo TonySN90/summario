@@ -8,7 +8,7 @@ function AppProvider({ children }: { children: React.ReactNode }) {
   const [sort, setSort] = useState(true);
   const [isOpenFavourites, setIsOpenFavourites] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [isLoading, setIsLoading] = useState(LoadingStatusType.idle);
+  const [loadingStatus, setloadingStatus] = useState(LoadingStatusType.idle);
   const [currentHotel, setCurrentHotel] = useState({});
 
   const [favorites, setFavorites] = useState<IHotelTypes[]>([]);
@@ -39,7 +39,7 @@ function AppProvider({ children }: { children: React.ReactNode }) {
     // localStorage.setItem("favorites", JSON.stringify(favorites));
 
     async function getHotelData() {
-      setIsLoading(LoadingStatusType.loading);
+      setloadingStatus(LoadingStatusType.loading);
       try {
         const response = await fetch("http://localhost:3000/api/hotels");
         const data = await response.json();
@@ -71,7 +71,7 @@ function AppProvider({ children }: { children: React.ReactNode }) {
       } catch (error) {
         console.log(error);
       } finally {
-        setIsLoading(LoadingStatusType.idle);
+        setloadingStatus(LoadingStatusType.idle);
       }
     }
 
@@ -91,7 +91,7 @@ function AppProvider({ children }: { children: React.ReactNode }) {
         setIsOpenFavourites,
         isOpenModal,
         setIsOpenModal,
-        isLoading,
+        loadingStatus,
         hotelData,
         currentHotel,
         setCurrentHotel,

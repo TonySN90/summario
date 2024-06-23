@@ -1,4 +1,4 @@
-const isoCountries = {
+const isoCountries: { [key: string]: string } = {
   AF: "Afghanistan",
   AX: "Aland Islands",
   AL: "Albania",
@@ -246,7 +246,7 @@ const isoCountries = {
   ZW: "Zimbabwe",
 };
 
-function getCountryName(countryCode: keyof typeof isoCountries) {
+function getCountryName(countryCode: string) {
   if (isoCountries.hasOwnProperty.call(isoCountries, countryCode)) {
     return isoCountries[countryCode];
   } else {

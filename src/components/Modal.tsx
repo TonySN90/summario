@@ -5,6 +5,7 @@ import { FaTripadvisor } from "react-icons/fa";
 import { BiDollarCircle } from "react-icons/bi";
 import getCountryName from "../helper";
 import { IHotelTypes } from "../types/types";
+import Map from "./Map";
 
 function Modal() {
   const { setIsOpenModal, currentHotel } = useAppContext();
@@ -12,10 +13,10 @@ function Modal() {
   const {
     name,
     shortDescription,
-    // address,
+    address,
     city,
     country,
-    // location,
+    location,
     deepLink,
     thumbNailUrl,
     tripAdvisorRating,
@@ -38,9 +39,9 @@ function Modal() {
         className="absolute top-2 right-2 text-4xl"
       />
       <div className="flex items-center flex-wrap gap-1 text-sm">
-        <p>{`${city} • ${getCountryName(
-          country
-        )} • ${name} • ${locationDescription}`}</p>
+        <p>{`${city} • ${
+          country ? getCountryName(country) : ""
+        } • ${name} • ${locationDescription}`}</p>
       </div>
 
       <div className="my-4 w-full h-[35%] rounded-lg overflow-hidden">
@@ -57,8 +58,8 @@ function Modal() {
         <BiDollarCircle className="text-2xl mt-[2px]" />
 
         <p className="font-bold text-2xl">
-          <span className="text-green-500">{Math.round(lowRate)} $</span> -{" "}
-          <span>{Math.round(highRate)} $</span>
+          <span className="text-green-500">{Math.round(lowRate ?? 0)} $</span> -{" "}
+          <span>{Math.round(highRate ?? 0)} $</span>
         </p>
       </div>
 
@@ -70,6 +71,16 @@ function Modal() {
           For more information follow the link
         </a>
       </article>
+
+      <div className="flex gap-2 mt-6">
+        <p>{address}</p>
+        <p>•</p>
+        <p>{city}</p>
+        <p>•</p>
+        <p>{country ? getCountryName(country) : ""}</p>
+      </div>
+
+      {location && <Map location={location} />}
 
       <a
         href={deepLink}
