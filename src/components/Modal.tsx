@@ -2,8 +2,9 @@ import { MdClose } from "react-icons/md";
 import { useAppContext } from "../contexts/AppContext";
 import Rating from "./Rating";
 import { FaTripadvisor } from "react-icons/fa";
-import { BiDollarCircle, BiLogoTripAdvisor } from "react-icons/bi";
+import { BiDollarCircle } from "react-icons/bi";
 import getCountryName from "../helper";
+import { IHotelTypes } from "../types/types";
 
 function Modal() {
   const { setIsOpenModal, currentHotel } = useAppContext();
@@ -11,17 +12,17 @@ function Modal() {
   const {
     name,
     shortDescription,
-    address,
+    // address,
     city,
     country,
-    location,
+    // location,
     deepLink,
     thumbNailUrl,
     tripAdvisorRating,
     lowRate,
     highRate,
     locationDescription,
-  } = currentHotel;
+  } = currentHotel as IHotelTypes;
 
   const URL = `http://localhost:3000${thumbNailUrl}`;
 

@@ -18,9 +18,11 @@ function Controls() {
     isOpenFavourites,
     setIsOpenFavourites,
     favorites,
+    sortHotels,
   } = useAppContext();
   function handleClickSort() {
     setSort(!sort);
+    sortHotels();
   }
   function handleClickView() {
     setView(!view);

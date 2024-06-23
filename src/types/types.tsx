@@ -11,6 +11,7 @@ export interface IContextTypes {
   isLoading: LoadingStatusType;
   currentHotel: IHotelTypes | null;
   setCurrentHotel: React.Dispatch<React.SetStateAction<IHotelTypes | object>>;
+  sortHotels: () => void;
   favorites: object[];
   hotelData: object[];
 }
@@ -21,6 +22,7 @@ export interface IHotelTypes {
   address1?: string;
   city?: string;
   countryCode?: string;
+  country?: string;
   location?: string;
   lowRate?: number;
   highRate?: number;

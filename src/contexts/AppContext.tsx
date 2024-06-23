@@ -11,10 +11,26 @@ function AppProvider({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(LoadingStatusType.idle);
   const [currentHotel, setCurrentHotel] = useState({});
 
-  const [favorites, setFavorites] = useState<object[]>([]);
-  const [hotelData, setHotelData] = useState<object[]>([]);
+  const [favorites, setFavorites] = useState<IHotelTypes[]>([]);
+  const [hotelData, setHotelData] = useState<IHotelTypes[]>([]);
+
+  function sortHotels() {
+    if (sort) {
+      const sortedData = [...hotelData].sort((a, b) =>
+        (a?.name || "").localeCompare(b?.name || "")
+      );
+      setHotelData(sortedData);
+    } else {
+      const sortedData = [...hotelData].sort((a, b) =>
+        (b?.name || "").localeCompare(a?.name || "")
+      );
+      setHotelData(sortedData);
+    }
+  }
 
   useEffect(() => {
+    // function sortHotels() {
+
     // const storedFavorites = localStorage.getItem("favorites");
     // if (storedFavorites) {
     //   setFavorites(JSON.parse(storedFavorites));
@@ -30,25 +46,23 @@ function AppProvider({ children }: { children: React.ReactNode }) {
 
         const hotelData: IHotelTypes[] = [];
 
-        console.log(data);
-
         data.forEach((hotel: IHotelTypes) => {
           const object = {
             id: hotel.id,
             name: hotel.name,
-            address: hotel.address1,
             city: hotel.city,
-            country: hotel.countryCode,
-            location: hotel.location,
             lowRate: hotel.lowRate,
-            highRate: hotel.highRate,
-            confidenceRating: hotel.confidenceRating,
-            thumbNailUrl: hotel.thumbNailUrl,
-            tripAdvisorRating: hotel.tripAdvisorRating,
-            tripAdvisorRatingUrl: hotel.tripAdvisorRatingUrl,
+            address: hotel.address1,
+            location: hotel.location,
             deepLink: hotel.deepLink,
+            highRate: hotel.highRate,
+            country: hotel.countryCode,
+            thumbNailUrl: hotel.thumbNailUrl,
             shortDescription: hotel.shortDescription,
+            confidenceRating: hotel.confidenceRating,
+            tripAdvisorRating: hotel.tripAdvisorRating,
             locationDescription: hotel.locationDescription,
+            tripAdvisorRatingUrl: hotel.tripAdvisorRatingUrl,
           };
           hotelData.push(object);
         });
@@ -81,6 +95,7 @@ function AppProvider({ children }: { children: React.ReactNode }) {
         hotelData,
         currentHotel,
         setCurrentHotel,
+        sortHotels,
       }}
     >
       {children}
