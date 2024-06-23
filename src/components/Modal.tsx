@@ -43,12 +43,12 @@ function Modal() {
   }
 
   return (
-    <div className="fixed top-0 left-0 px-4 pt-12 md:pt-20 pb-10 w-full h-full z-10 bg-color_bg overflow-auto">
+    <div className="fixed top-0 left-0 px-4 pt-12 md:pt-20 pb-10 w-full h-full z-10 bg-color_bg md:bg-transparent md:backdrop-blur-lg overflow-auto">
       <MdClose
         onClick={() => handleClick()}
-        className="absolute top-2 right-2 text-4xl cursor-pointer animate-bounce"
+        className="absolute top-2 right-2 text-4xl cursor-pointer animate-bounce md:text-white"
       />
-      <div className="sm:w-11/12 md:w-[700px] m-auto md:bg-white md:p-8 rounded-lg md:shadow-lg">
+      <div className="relative sm:w-11/12 md:w-[700px] m-auto md:bg-white md:p-8 rounded-lg md:shadow-2xl">
         <div className="flex items-center flex-wrap gap-1 text-sm">
           <p>{`${city} • ${
             country ? getCountryName(country) : ""
