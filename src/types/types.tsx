@@ -10,7 +10,9 @@ export interface IContextTypes {
   setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   loadingStatus: LoadingStatusType;
   currentHotel: IHotelTypes | null;
-  setCurrentHotel: React.Dispatch<React.SetStateAction<IHotelTypes | object>>;
+  setCurrentHotel: React.Dispatch<
+    React.SetStateAction<object | IHotelTypes | null>
+  >;
   sortHotels: () => void;
   setFavorite: (object: IHotelTypes) => void;
   favorites: object[];
