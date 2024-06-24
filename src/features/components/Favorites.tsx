@@ -1,7 +1,7 @@
 import { MdClose } from "react-icons/md";
-import { useAppContext } from "../contexts/AppContext";
+import { useAppContext } from "../../contexts/AppContext";
 import ListItem from "../list/ListItem";
-import { IHotelTypes } from "../types/types";
+import { IHotelTypes } from "../../types/types";
 
 function Favorites() {
   const { isOpenFavourites, setIsOpenFavourites, favorites } = useAppContext();
@@ -9,7 +9,7 @@ function Favorites() {
   return (
     <div
       style={{ right: isOpenFavourites ? "-2px" : "-100%" }}
-      className="fixed h-[100vh] top-0 w-[90%] sm:w-[50%] xl:w-[36%]  z-10 bg-color_brand_02 transition-all duration-500 ease-in-out"
+      className="fixed h-[100vh] top-0 w-[100%] sm:w-[60%] xl:w-[36%] z-10 bg-color_brand_02 transition-all duration-500 ease-in-out"
     >
       <div className="p-4">
         <div className="font-semibold text-xl mb-4">Favourites</div>

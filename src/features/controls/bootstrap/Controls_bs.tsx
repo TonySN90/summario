@@ -6,8 +6,8 @@ import {
   FaSortAlphaUp,
 } from "react-icons/fa";
 import { SiWindows11 } from "react-icons/si";
-import ControlButton from "./ControlButton";
-import { useAppContext } from "../contexts/AppContext";
+import { useAppContext } from "../../../contexts/AppContext";
+import ControlButton from "./ControlButton_bs";
 
 function Controls() {
   const {
@@ -34,20 +34,32 @@ function Controls() {
 
   return (
     <section>
-      <div className="flex w-full gap-2 mb-2">
+      <div className="d-flex gap-2 mb-2">
         <ControlButton handleClick={() => handleClickSort()}>
-          <p className="text-sm">Sort</p>
-          {sort ? <FaSortAlphaUp /> : <FaSortAlphaDown />}
+          <span className="text-sm">Sort</span>
+          {sort ? (
+            <FaSortAlphaUp className="ms-1" />
+          ) : (
+            <FaSortAlphaDown className="ms-1" />
+          )}
         </ControlButton>
 
         <ControlButton handleClick={() => handleClickView()}>
-          <p className="text-sm">View</p>
-          {view ? <FaListUl /> : <SiWindows11 />}
+          <span className="text-sm">View</span>
+          {view ? (
+            <FaListUl className="ms-1" />
+          ) : (
+            <SiWindows11 className="ms-1" />
+          )}
         </ControlButton>
 
         <ControlButton handleClick={() => handleClickFavs()}>
-          <p className="text-sm">Favorites</p>
-          {favorites.length === 0 ? <FaRegHeart /> : <FaHeart />}
+          <span className="text-sm">Favorites</span>
+          {favorites.length === 0 ? (
+            <FaRegHeart className="ms-1" />
+          ) : (
+            <FaHeart className="ms-1" />
+          )}
         </ControlButton>
       </div>
     </section>

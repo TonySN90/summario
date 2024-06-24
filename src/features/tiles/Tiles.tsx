@@ -1,6 +1,6 @@
-import Spinner from "../components/Spinner";
-import { useAppContext } from "../contexts/AppContext";
-import { IHotelTypes, LoadingStatusType } from "../types/types";
+import { Spinner } from "react-bootstrap";
+import { IHotelTypes, LoadingStatusType } from "../../types/types";
+import { useAppContext } from "../../contexts/AppContext";
 import Tile from "./Tile";
 
 function Tiles() {

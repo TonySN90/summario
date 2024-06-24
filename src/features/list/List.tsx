@@ -1,6 +1,6 @@
 import Spinner from "../components/Spinner";
-import { useAppContext } from "../contexts/AppContext";
-import { IHotelTypes, LoadingStatusType } from "../types/types";
+import { useAppContext } from "../../contexts/AppContext";
+import { IHotelTypes, LoadingStatusType } from "../../types/types";
 import ListItem from "./ListItem";
 
 function List() {

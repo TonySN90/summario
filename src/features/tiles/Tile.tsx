@@ -1,7 +1,7 @@
 import { GoHeart, GoHeartFill } from "react-icons/go";
+import { IHotelTypes } from "../../types/types";
+import { useAppContext } from "../../contexts/AppContext";
 import ListItemEntries from "../components/ListItemEntries";
-import { useAppContext } from "../contexts/AppContext";
-import { IHotelTypes } from "../types/types";
 
 function Tile({ hotel }: { hotel: IHotelTypes }) {
   const { setIsOpenModal, setCurrentHotel, setFavorite, favorites } =
@@ -46,7 +46,7 @@ function Tile({ hotel }: { hotel: IHotelTypes }) {
           <GoHeart className="text-color_brand_04 text-xl" />
         )}
       </div>
-      <div className="flex flex-col justify-center align-center p-4 min-h-[120px] max-h-[140px]">
+      <div className="flex flex-col justify-center align-center p-2 ml-2 min-h-[120px]">
         <ListItemEntries hotel={hotel} />
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { AiOutlineDollar } from "react-icons/ai";
 import { FaTripadvisor } from "react-icons/fa";
 import { LuHotel } from "react-icons/lu";
-import { IHotelTypes } from "../types/types";
+import { IHotelTypes } from "../../types/types";
 import Rating from "./Rating";
 
 function ListItemEntries({ hotel }: { hotel: IHotelTypes }) {

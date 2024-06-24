@@ -1,7 +1,7 @@
 import { GoHeart, GoHeartFill } from "react-icons/go";
 import ListItemEntries from "../components/ListItemEntries";
-import { useAppContext } from "../contexts/AppContext";
-import { IHotelTypes } from "../types/types";
+import { useAppContext } from "../../contexts/AppContext";
+import { IHotelTypes } from "../../types/types";
 import { MdClose } from "react-icons/md";
 
 function ListItem({

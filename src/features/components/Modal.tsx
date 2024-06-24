@@ -1,12 +1,12 @@
 import { MdClose } from "react-icons/md";
-import { useAppContext } from "../contexts/AppContext";
+import { useAppContext } from "../../contexts/AppContext";
 import Rating from "./Rating";
 import { FaTripadvisor } from "react-icons/fa";
 import { BiDollarCircle } from "react-icons/bi";
-import getCountryName from "../helper";
-import { IHotelTypes } from "../types/types";
+import { IHotelTypes } from "../../types/types";
 import Map from "./Map";
 import { GoHeart, GoHeartFill } from "react-icons/go";
+import getCountryName from "../../utils/helper";
 
 function Modal() {
   const { setIsOpenModal, currentHotel, setFavorite, favorites } =

@@ -2,14 +2,136 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color_brand_01: #b6f2ec;
+  --color_brand_02: #f2e5d5;
+  --color_brand_03: #40200e;
+  --color_brand_03_tr1: #40200eb8;
+  --color_brand_03_tr2: #40200e75;
+  --color_brand_04: #bf0404;
+  --color_brand_05: #a69c9c;
+  --color_bg: #f3f2f2;
+  --color_tripAdvisor: #00aa6c;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
-  color: #40200e;
-  background-color: #f3f2f2;
+  color: var(--color_brand_03);
   min-height: 100vh;
   font-family: Quicksand, sans-serif;
   background: url("./bg.png") no-repeat center center fixed;
   background-size: cover;
+}
+
+.bg-color_brand_01 {
+  background-color: var(--color_brand_01);
+}
+.bg-color_brand_02 {
+  background-color: var(--color_brand_02);
+}
+.bg-color_brand_03 {
+  background-color: var(--color_brand_03);
+}
+
+.bg-color_brand_03_tr1 {
+  background-color: var(--color_brand_03_tr1);
+}
+.bg-color_brand_03_tr2 {
+  background-color: var(--color_brand_03_tr2);
+}
+.bg-color_brand_04 {
+  background-color: var(--color_brand_04);
+}
+.bg-color_brand_05 {
+  background-color: var(--color_brand_05);
+}
+.bg-color_bg {
+  background-color: var(--color_bg);
+}
+
+.text-color_brand_01 {
+  color: var(--color_brand_01);
+}
+.text-color_brand_02 {
+  color: var(--color_brand_02);
+}
+.text-color_brand_03 {
+  color: var(--color_brand_03);
+}
+.text-color_brand_04 {
+  color: var(--color_brand_04);
+}
+.text-color_brand_05 {
+  color: var(--color_brand_05);
+}
+.text-color_bg {
+  color: var(--color_bg);
+}
+.text-color_tripAdvisorRating {
+  color: var(--color_tripAdvisor);
+}
+
+.width-tiles {
+  @media screen and (min-width: 0px) {
+    width: calc(50% - 0.25rem);
+  }
+  @media screen and (min-width: 650px) {
+    width: calc(33.1% - 0.25rem);
+  }
+}
+
+.width-modal {
+  width: 100%;
+  background-color: none;
+
+  @media screen and (min-width: 750px) {
+    width: 700px;
+    padding: 2rem;
+    margin: 0 auto;
+    background-color: #fff;
+  }
+}
+
+.modal-full-size {
+  max-height: 220px;
+  width: 100%;
+  @media screen and (min-width: 550px) {
+    width: 50%;
+  }
+}
+
+.modal-bg-filter {
+  padding-top: 45px;
+  backdrop-filter: blur(14px);
+
+  @media screen and (min-width: 750px) {
+    background: transparent;
+  }
+}
+
+.modal-header-size {
+  display: block;
+  @media screen and (min-width: 550px) {
+    display: flex;
+  }
+}
+
+.modal-title-size {
+  width: 100%;
+  @media screen and (min-width: 550px) {
+    width: 50%;
+  }
+}
+
+.favorites-size {
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  @media screen and (min-width: 450px) {
+    width: 75%;
+  }
+  @media screen and (min-width: 750px) {
+    width: 500px;
+  }
 }
